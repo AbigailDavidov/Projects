@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        var x=0, y=0,z=0, flag=0,flag2=0;
+
+        function addNumber(nr) {
+            
+                
+            if (((document.getElementById('H').children[0].innerHTML == 0) && (document.getElementById('H').children[0].innerHTML.indexOf('.') < 0)) || (flag == 1))
+               {
+                document.getElementById('H').children[0].innerHTML = nr;
+                flag = 0;
+               
+               }
+            else
+            {
+              
+                document.getElementById('H').children[0].innerHTML += nr;
+            }
+
+        }
+        function deleteL () 
+        {
+           
+
+
+            var ezer = document.getElementById('H').children[0].innerHTML; 
+            var newvalue = '';
+            for (var i = 0; i < ezer.length - 1; i++) {
+                newvalue += ezer[i];
+
+            }
+
+         
+
+            document.getElementById('H').children[0].innerHTML = newvalue;
+            if (document.getElementById('H').children[0].innerHTML == 0)
+                restart2()
+        }
+        function restart()
+        {
+            document.getElementById('H').children[0].innerHTML = 0;
+            x = 0;
+        }
+        function restart2() {
+            document.getElementById('H').children[0].innerHTML = 0;
+            x = 0;
+            y = 0;
+            z = 0;
+            flag = 0;
+            flag2 = 0;
+           
+        }
+        function negtive() {
+            document.getElementById('H').children[0].innerHTML = document.getElementById('H').children[0].innerHTML*(-1);
+
+        }
+        function dot() {
+            if (document.getElementById('H').children[0].innerHTML.indexOf('.') < 0) {
+                flag2 = 1;
+                document.getElementById('H').children[0].innerHTML += '.';
+            }
+        }
+        function mathh(c)
+        {
+            if (y != 0)
+                result();
+            y = c;
+            x = eval(document.getElementById('H').children[0].innerHTML);
+           flag = 1;
+           
+            
+        }
+
+        function result() {
+            z = eval(document.getElementById('H').children[0].innerHTML);
+            switch (y) {
+                case '+':
+                    {
+                        x = z + x;
+                       
+                    }
+                    break;
+
+                case '-':
+                    {
+                        x = x- z;
+                        
+
+                    }
+                    break;
+                case '*':
+                    {
+                        x = x * z;
+                        
+
+                    }
+                    break;
+                case '/':
+                    {
+                        x = x / z;
+                        
+                    }
+                    break;
+
+
+            }
+            document.getElementById('H').children[0].innerHTML = x;
+        }
+    </script>
+    
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .div1 {
+            width: 60px;
+            height: 60px;
+            background-color: #b6afaf;
+            text-align: center;
+            margin-top: 5px;
+            position: absolute
+        }
+            .div1:hover {
+                background-color:antiquewhite
+            }
+        .div2 {
+            width: 212px;
+            height: 100px;
+            background-color: #f5eeee;
+            /*text-align: center;*/
+            margin-top: 5px;
+            position: absolute;
+
+        }
+        .row1{top:60px}
+        .row2{top:120px}
+        .row3{top:180px}
+        .row4{top:240px}
+        .row5{top:300px}
+        .coulmn1{left:10px}
+        .coulmn2 {left: 60px}
+        .coulmn3 {left: 110px}
+        .coulmn4 {left: 160px}
+        .coulmn5 {left: 210px}
+
+
+    </style>
+</head>
+<body>
+    <div id="H" class="div2">
+        <p >0</p>
+       
+    </div>
+    <div class="div1 row1 coulmn1" onclick="restart2()">
+        <p style="">CE</p>
+    </div>
+    <div class="div1 row1 coulmn2" onclick="restart()">
+        <p style="">C</p>
+    </div>
+    <div class="div1 row1 coulmn3"onclick="deleteL()">
+        <p style="">-></p>
+    </div>
+    <div class="div1 row1 coulmn4" onclick="mathh('*')">
+        <p style="">*</p>
+    </div>
+    <div class="div1 row2 coulmn1" onclick="addNumber(7)">
+    <p style="">7</p>
+   </div>
+   <div class="div1 row2 coulmn2" onclick="addNumber(8)">
+    <p style="">8</p>
+   </div>
+        <div class="div1 row2 coulmn3" onclick="addNumber(9)">
+    <p style="">9</p>
+    </div>
+
+    <div class="div1 row2 coulmn4" onclick="mathh('/')">
+        <p style="">/</p>
+    </div>
+    <div class="div1 row3 coulmn1 " onclick="addNumber(4)">
+        <p style="">4</p>
+    </div>
+
+    <div class="div1 row3 coulmn2" onclick="addNumber(5)">
+        <p style="">5</p>
+    </div>
+    <div class="div1 row3 coulmn3" onclick="addNumber(6)">
+        <p style="">6</p>
+    </div>
+    <div class="div1 row3 coulmn4" onclick="mathh('-')">
+        <p style="">-</p>
+    </div>
+
+    <div class="div1 row4 coulmn1 " onclick="addNumber(1)">
+        <p style="">1</p>
+    </div>
+
+    <div class="div1 row4 coulmn2" onclick="addNumber(2)">
+        <p style="">2</p>
+    </div>
+    <div class="div1 row4 coulmn3" onclick="addNumber(3)">
+        <p style="">3</p>
+    </div>
+    <div class="div1 row4 coulmn4"onclick="mathh('+')">
+        <p style="">+</p>
+    </div>
+    
+
+
+   
+    <div class="div1 row5 coulmn1 " onclick="negtive()">
+        <p style="">+/-</p>
+    </div>
+
+    <div class="div1 row5 coulmn2" onclick="addNumber(0)">
+        <p style="">0</p>
+    </div>
+    <div class="div1 row5 coulmn3" onclick="dot()">
+        <p style="">.</p>
+    </div>
+    <div class="div1 row5 coulmn4" onclick="result() ">
+        <p style="">=</p>
+    </div>
+
+</body>
+</html>
